@@ -2,12 +2,13 @@ FROM docker.io/library/alpine
 
 LABEL org.opencontainers.image.source=https://github.com/computator/smartmontools-container
 
-RUN set -ex; \
-	apk add --no-cache smartmontools; \
+RUN set -eux; \
+	apk add --no-cache smartmontools s-nail; \
 	echo 'DEVICESCAN -a -n standby -m root -M diminishing' > /etc/smartd.conf
 
 COPY entrypoint.sh /
 
+ENV SMARTHOST=localhost
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["smartd"]
 VOLUME /var/lib/smartmontools
