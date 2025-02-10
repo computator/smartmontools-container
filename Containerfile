@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.source=https://github.com/computator/smartmontool
 
 RUN set -eux; \
 	apk add --no-cache smartmontools s-nail; \
-	echo 'DEVICESCAN -a -n standby -m root -M diminishing' > /etc/smartd.conf
+	echo 'DEVICESCAN -a -n standby -m root@localhost -M diminishing' > /etc/smartd.conf
 
 COPY entrypoint.sh /
 

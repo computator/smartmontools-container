@@ -3,7 +3,7 @@
 set -e
 
 test -n "$REPORT_EMAIL" && \
-	sed -Ei '/DEVICESCAN/ s/\-m root( |$)/-m '"$REPORT_EMAIL"'\1/' /etc/smartd.conf
+	sed -Ei '/DEVICESCAN/ s/\-m root(@localhost)?( |$)/-m '"$REPORT_EMAIL"'\2/' /etc/smartd.conf
 
 if [ -n "$SMARTHOST" ] && [ ! -f $HOME/.mailrc ]; then
 	noscheme=$([ "${SMARTHOST#*://}" = "${SMARTHOST}" ] && echo 1) || :
