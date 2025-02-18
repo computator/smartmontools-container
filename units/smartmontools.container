@@ -1,0 +1,16 @@
+[Unit]
+Description=smartmontools
+
+[Container]
+Image=ghcr.io/computator/smartmontools
+AutoUpdate=registry
+
+PodmanArgs=--privileged
+
+Environment=SMARTHOST=localhost
+Environment=REPORT_EMAIL=root@localhost
+
+Volume=smartmontools:/var/lib/smartmontools
+
+[Install]
+WantedBy=multi-user.target
