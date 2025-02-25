@@ -7,6 +7,7 @@ AutoUpdate=registry
 
 PodmanArgs=--privileged
 
+Environment=MAILNAME=%H
 Environment=SMARTHOST=localhost
 Environment=REPORT_EMAIL=root@localhost
 
