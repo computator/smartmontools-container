@@ -9,6 +9,9 @@ RUN set -eux; \
 COPY entrypoint.sh /
 
 ENV SMARTHOST=localhost
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["smartd"]
 VOLUME /var/lib/smartmontools
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["smartd", \
+	"--attributelog=/var/lib/smartmontools/attrlog.", \
+	"--savestates=/var/lib/smartmontools/smartd." \
+]
