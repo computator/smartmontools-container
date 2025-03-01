@@ -5,9 +5,10 @@ Description=smartmontools
 Image=ghcr.io/computator/smartmontools
 AutoUpdate=registry
 
+HostName=%H
 PodmanArgs=--privileged
 
-Environment=MAILNAME=%H
+# Environment=MAILNAME=%H
 Environment=SMARTHOST=localhost
 Environment=REPORT_EMAIL=root@localhost
 
